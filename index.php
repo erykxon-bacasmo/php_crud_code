@@ -42,7 +42,7 @@ $conn->close();
                         </tr>
                     <?php }
                 } else { ?>
-                    echo "<tr><td colspan='4'>No data record here!</td></tr>";
+                    <tr><td colspan='4'>No data record here!</td></tr>
                 <?php }
             ?>    
         </tbody>
