@@ -14,6 +14,6 @@ function connection(){
         return $conn;
     }
 }
-echo "successfull connected!";
+
 
 ?>
