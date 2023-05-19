@@ -32,7 +32,7 @@ $result = $conn->query($sql);
         header("location: index.php");
     } 
     ?>
-    <h1>Sample PHP CRUD</h1>
+    <h1>Sample PHP CRUD Database</h1>
     <br>
     <!-- Add Record Section -->
     <button id="add-btn" class="add-btn">Add Record</button>
