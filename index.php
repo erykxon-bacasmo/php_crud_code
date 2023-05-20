@@ -54,7 +54,7 @@ $result = $conn->query($sql);
                 <input type="number" name="old" id="age" required>
                 <br><br>
                 <label>Status: </label>
-                <select type="select" name="status" id="status" required>
+                <select name="status" id="status" required>
                     <option value="Not to say">None</option>
                     <option value="Single">Single</option>
                     <option value="Married">Married</option>
