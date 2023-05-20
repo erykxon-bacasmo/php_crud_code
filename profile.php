@@ -21,6 +21,68 @@ $rows = $result->fetch_assoc();
 </head>
 <body>
     <h1>Hello Mr. <?php echo $rows['full_name']?></h1>
-    <a href="index.php">Back</a>
+    <br><br>
+    <a href="index.php">Back</a>&nbsp; &nbsp;
+    <button id="edit-btn">Edit Record</button>
+
+    <?php
+    
+    $id = $_GET['id'];
+
+    if(isset($_POST['update'])) {
+        $name = $_POST['fname'];
+        $age = $_POST['old'];
+        $stats = $_POST['status'];
+
+        $sql = "UPDATE test_code_db SET `full_name` = '$name', `age` = '$age', `status` = '$stats' WHERE id = '$id'";
+        $conn->query($sql);
+
+        header("location: profile.php?id=" .$id);
+
+    } else if(isset($_POST['cancel'])){
+        header("location: profile.php?id=" .$id);
+    }
+
+    ?>
+
+    <div id="modalEdit" class="modal">
+        <div class="modal-content">
+            <h2>Edit Record</h2>
+            <form action="" method="post" onsubmit="validateForm()">
+            <label>Full Name: </label>
+                <input type="text" name="fname" value="<?php echo $rows['full_name']?>" required>
+                <br><br>
+                <label>Age: </label>
+                <input type="number" name="old" value="<?php echo $rows['age']?>" required>
+                <br><br>
+                <label>Status: </label>
+                <select name="status" id="status">
+                    <option value="Not to say" <?php echo($rows['status'] == "Not to say")? 'selected': '';?>>None</option>
+                    <option value="Single" <?php echo($rows['status'] == "Single")? 'selected': '';?>>Single</option>
+                    <option value="Married"<?php echo($rows['status'] == "Married")? 'selected': '';?>>Married</option>
+                    <option value="Divorce"<?php echo($rows['status'] == "Divorce")? 'selected': '';?>>Divorce</option>
+                    <option value="Complicated" <?php echo($rows['status'] == "Complicated")? 'selected': '';?>>Complicated</option>
+                </select> <br><br>
+                <button type="submit" name="update">Edit</button>
+            </form>
+            <form action="" method="post">
+                <button type="submit" name="cancel">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        var editBtn = document.getElementById("edit-btn");
+        var editModal = document.getElementById("modalEdit");
+
+        editBtn.onclick = function(){
+            editModal.style.display = "block";
+        };
+
+        window.onclick = function(event){
+            if(event.target == editModal){
+                editModal.style.display = "none";
+            }
+        };
+    </script>
 </body>
 </html>
