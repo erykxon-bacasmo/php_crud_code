@@ -44,14 +44,14 @@ $result = $conn->query($sql);
             <!-- close button -->
             <span id="close" class="close">&times;</span>
             <!-- content of the modal -->
-            <h2>Add Record</h2>
+            <h2>Add Record</h2><br>
             <!-- syntax that will connect to our database -->
             <form action="" method="post" id="add-form" onsubmit="validateForm()">
                 <label>Full Name: </label>
                 <input type="text" name="fname" id="full_name" required>
                 <br><br>
                 <label>Age: </label>
-                <input type="number" name="old" id="age" required>
+                <input type="integers" name="old" id="age" required>
                 <br><br>
                 <label>Status: </label>
                 <select name="status" id="status" required>
@@ -60,8 +60,8 @@ $result = $conn->query($sql);
                     <option value="Married">Married</option>
                     <option value="Divorce">Divorce</option>
                     <option value="Complicated">Complicated</option>
-                </select> <br><br>
-                <button id="submit" type="submit" name="add">Add Record</button>
+                </select> <br><br><br>
+                <button id="submit" type="submit" name="add" class="addbtn">Add Record</button>
                 <script>
                     function validateForm(){
                         var name = document.getElementById('full_name')
@@ -109,14 +109,6 @@ $result = $conn->query($sql);
                                     <a class="td-btn" href="profile.php?id= <?php echo $rows['id']?>">More</a>&nbsp; &nbsp;
                                     <button type="submit" name="delete" id="delete">Delete Record</button>
                                     <input type="hidden" name="row-delete" value="<?php echo $rows['id']?>">
-
-                                    <script>
-                                        var deleteBtn = document.getElementById('delete');
-
-                                        deleteBtn.onclick = function(){
-                                            alert("Deleted Successfully");
-                                        }
-                                    </script>
                                 </form>
                             </td>
                         </tr>
