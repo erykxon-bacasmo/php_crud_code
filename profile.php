@@ -48,12 +48,12 @@ $rows = $result->fetch_assoc();
     <div id="modalEdit" class="modal">
         <div class="modal-content">
             <h2>Edit Record</h2>
-            <form action="" method="post" onsubmit="validateForm()">
+            <form action="" method="post" class="form1" onsubmit="validateForm()">
             <label>Full Name: </label>
                 <input type="text" name="fname" value="<?php echo $rows['full_name']?>" required>
                 <br><br>
                 <label>Age: </label>
-                <input type="number" name="old" value="<?php echo $rows['age']?>" required>
+                <input type="integers" name="old" value="<?php echo $rows['age']?>" required>
                 <br><br>
                 <label>Status: </label>
                 <select name="status" id="status">
@@ -62,11 +62,11 @@ $rows = $result->fetch_assoc();
                     <option value="Married"<?php echo($rows['status'] == "Married")? 'selected': '';?>>Married</option>
                     <option value="Divorce"<?php echo($rows['status'] == "Divorce")? 'selected': '';?>>Divorce</option>
                     <option value="Complicated" <?php echo($rows['status'] == "Complicated")? 'selected': '';?>>Complicated</option>
-                </select> <br><br>
-                <button type="submit" name="update">Edit</button>
+                </select> <br><br><br>
+                <button type="submit" name="update" class="edt-btn">Edit</button>
             </form>
-            <form action="" method="post">
-                <button type="submit" name="cancel">Cancel</button>
+            <form action="" method="post" class="form2">
+                <button type="submit" name="cancel" class="cnl-btn">Cancel</button>
             </form>
         </div>
     </div>
