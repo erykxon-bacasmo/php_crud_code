@@ -55,7 +55,8 @@ $result = $conn->query($sql);
                 <br><br>
                 <label>Status: </label>
                 <select name="status" id="status" required>
-                    <option value="Not to say">None</option>
+                    <option value="" hidden></option>
+                    <option value="Not to say">Not to say</option>
                     <option value="Single">Single</option>
                     <option value="Married">Married</option>
                     <option value="Divorce">Divorce</option>
