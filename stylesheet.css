@@ -29,7 +29,7 @@ button {
 }
 
 .add-btn {
-    margin-left: 15%;
+    margin-left: 10%;
 }
 
 /* styles for pop up modal */
@@ -54,7 +54,7 @@ button {
     border: 1px solid #888;
     border-radius: 8px;
     width: 35%;
-    height: 50%;
+    height: 100%;
 
 }
 
@@ -104,7 +104,7 @@ select {
 
 
 /* About Table */
-table {
+/* table {
     border: 1px solid;
     width: 70%;
     margin: auto;
@@ -120,6 +120,24 @@ th,td {
     border-right: 1px solid ;
     text-align: center;
     padding: 10px;
+} */
+
+.dataTables_filter {
+    width: 80%;
+}
+
+.dataTables_length {
+    width: 80%;
+    margin-inline-start: 17%;
+}
+
+.dataTables_info {
+    width: 80%;
+    margin-inline-start: 25%;
+}
+
+ul.pagination{
+    width: 80%;
 }
 
 td:nth-child(4){
