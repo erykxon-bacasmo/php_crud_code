@@ -34,6 +34,7 @@ $result = $conn->query($sql);
         header("location: index.php");
     } 
     ?>
+    <br>
     <h1>Sample PHP CRUD Database</h1>
     <br>
     <!-- Add Record Section -->
