@@ -1,10 +1,23 @@
 <?php
-
 require "connection.php";
 $conn = connection();
 
+if(!isset($_SESSION)){
+    session_start();
+}	
+
+if(isset($_SESSION['UserLogin'])){
+    echo "Welcome ".$_SESSION['UserLogin']; 
+}else{
+    echo "Welcome Guest";
+}
+
+
+
+
 $sql = "SELECT * FROM test_code_db";
 $result = $conn->query($sql);
+
 
 
 ?>
@@ -20,6 +33,9 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 </head>
 <body>
+<?php if(isset($_SESSION['UserLogin'])){?>
+        <a href="logout.php">Logout</a>
+    <?php }?>
     <!-- For PHP Add function -->
     <?php
     
