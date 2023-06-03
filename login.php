@@ -11,17 +11,20 @@ if(isset($_POST['login'])){
     $un = $_POST['username'];
     $pass = $_POST['password'];
 
-    $sql="SELECT * FROM accounts WHERE username = '$un' AND password = '$pass'";
+    $sql="SELECT * FROM accounts WHERE username = '$un' AND pass = '$pass'";
     $result = $conn->query($sql);
     $rows = $result->fetch_assoc();
     $data = $result->num_rows;
 
     if($data > 0){
-        $_SESSION['UserLogin'] = $rows['username']; 
+        $_SESSION['id'] = $rows['user_id']; 
+        $_SESSION['user_name'] = $rows['user_full_name'];
         header("location: index.php");
-    } else {
-        echo "No user found!";
-    }
+    } else { ?>
+        <script>
+            alert("invalid account!");
+        </script>
+    <?php }
 
 }
 
@@ -44,7 +47,7 @@ if(isset($_POST['login'])){
                 <Label>Username:</Label>
                 <input type="text" name="username" id="username" placeholder="Enter your username" required><br><br>
                 <Label>Password:</Label>
-                <input type="password" name="password" id="password" placeholder="Enter your password" required><br><br>
+                <input type="password" name="password" id="pass" placeholder="Enter your password" required><br><br>
                 <button type="submit" name="login">Login</button>
             </form>
         </div>
