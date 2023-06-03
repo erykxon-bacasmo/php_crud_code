@@ -2,24 +2,40 @@
 require "connection.php";
 $conn = connection();
 
+
 if(!isset($_SESSION)){
     session_start();
 }	
 
-if(isset($_SESSION['UserLogin'])){
-    echo "Welcome ".$_SESSION['UserLogin']; 
+if(isset($_SESSION['user_name'])){
+    echo "Welcome ".$_SESSION['user_name']; 
 }else{
     echo "Welcome Guest";
 }
 
 
-
-
 $sql = "SELECT * FROM test_code_db";
 $result = $conn->query($sql);
+?>
+<?php
+
+if (!isset($_SESSION['id']) || (trim($_SESSION['id']) == '')) { 
+    // <!-- <script>
+    //     window.location = "login.php";
+    // </script> -->
 
 
+    $session_id=$_SESSION['id'];
+    $sql = "SELECT * FROM accounts WHERE user_id = '$session_id'";
+    $result = $conn->query($sql);
+    $user_rows = $result->fetch_array();
 
+    header("location: login.php");
+    // $user_rows = 
+    // $user_query = $conn->query("SELECT * FROM user WHERE user_id = '$session_id'") or die(mysqli_errno());
+    // $user_row = $user_query->fetch_array();
+    // $user_username = $user_row['firstname']." ".$user_row['lastname'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +49,7 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 </head>
 <body>
-<?php if(isset($_SESSION['UserLogin'])){?>
+<?php if(isset($_SESSION['id'])){?>
         <a href="logout.php">Logout</a>
     <?php }?>
     <!-- For PHP Add function -->
