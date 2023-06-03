@@ -10,6 +10,20 @@ $result = $conn->query($sql);
 $rows = $result->fetch_assoc();
 
 ?>
+<?php
+
+session_start();
+
+if (!isset($_SESSION['id']) || (trim($_SESSION['id']) == '')) {
+    $session_id=$_SESSION['id'];
+    $sql = "SELECT * FROM accounts WHERE user_id = '$session_id'";
+    $result = $conn->query($sql);
+    $user_rows = $result->fetch_array();
+
+    header("location: login.php");
+} 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
