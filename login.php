@@ -39,7 +39,8 @@ if(isset($_POST['login'])){
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <button id="register">Register Account?</button><br><br>
+    <!-- <button id="register">Register Account?</button><br><br> -->
+    <a href="create.php">Create Account?</a><br><br>
     <div class="login-container">
         <div class="login">
             <h1>Login</h1>
