@@ -8,6 +8,7 @@ $result = $conn->query($sql);
 session_start();
 
 if(isset($_SESSION['id'])){?>
+<?php echo"".$_SESSION['user_name']?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -131,7 +132,7 @@ if(isset($_SESSION['id'])){?>
         <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
         <script src="script.js"></script>
     </body>
-    </html>     
+    </html>
 <?php } else {?>
     <!DOCTYPE html>
     <html lang="en">
