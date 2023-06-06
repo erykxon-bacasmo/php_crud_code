@@ -7,7 +7,6 @@ var addBtn = document.getElementById("add-btn");
 // get the span close element for close button
 var closeBtn = document.getElementById("close");
 
-
 // When the user clicks the add button
 addBtn.onclick = function() {
     modal.style.display = "block";
@@ -21,8 +20,7 @@ closeBtn.onclick = function() {
 // When the user clicks anywhere or outside the modal, it will automatically close it
 window.onclick = function(event) {
     if(event.target == modal) {
-        modal.style.display = "none";
-        
+        modal.style.display = "none";        
     }
 };
 
