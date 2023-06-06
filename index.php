@@ -88,11 +88,7 @@ if(isset($_SESSION['id'])){?>
         </div>
     
         <br>
-        <!-- <div class="add-btn">
-            <a href="add.php">Add Data</a>
-        </div> -->
         <br>
-    
     
         <!-- Table Section -->
         <table id="example" class="table table-striped" style="width: 80%; margin: auto;">
