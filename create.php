@@ -3,8 +3,6 @@
 require "connection.php";
 $conn = connection();
 
-
-
 if(isset($_POST['create'])){
     $un = $_POST['un'];
     $pass = $_POST['pass'];
@@ -15,25 +13,14 @@ if(isset($_POST['create'])){
 
         echo "<script>alert('Your password did not match! Please try again');</script>";
     } else if(($_POST["pass"] == $_POST["cpass"])){
-        // echo "<script>alert('Create Successfully!');</script>";
         $sql = "INSERT INTO accounts (`username`, `pass`, `user_full_name`) VALUES('$un', '$pass', '$name')";
         $conn->query($sql);
         header("location: login.php");
 
     } else {
-        // $sql = "INSERT INTO accounts (`username`, `pass`, `user_full_name`) VALUES('$un', '$pass', '$name')";
-        // $conn->query($sql);
-        // header("location: login.php");
         return;
     }
 }
-
-// } else if($pass == $cpass){
-//     echo "password match!"; 
-//     header("location: login.php");
-// } else{
-//     echo "password did not match!";
-// }
 
 ?>
 <!DOCTYPE html>
