@@ -34,6 +34,17 @@ button {
     font-family: arial;
 }
 
+.add-modal-content {
+    background-color: #fefefe;
+    margin: 15px auto;
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 50%;
+    height: 90%;
+
+}
+
 .modal-content {
     background-color: #fefefe;
     margin: 15px auto;
@@ -91,10 +102,10 @@ select {
 
 
 /* About Table */
-/* table {
+table {
     border: 1px solid;
-    width: 70%;
-    margin: auto;
+    /* width: 70%;
+    margin: auto; */
     font-family: arial;
 }
 
@@ -106,8 +117,8 @@ th,td {
     border-bottom: 1px solid black;
     border-right: 1px solid ;
     text-align: center;
-    padding: 10px;
-} */
+    padding: 5px;
+}
 
 .dataTables_filter {
     width: 80%;
@@ -157,6 +168,29 @@ a {
     font-family: arial;
 }
 
+.edit-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: arial;
+}
+
+.edit-modal > .modal-content {
+    background-color: #fefefe;
+    margin: 15px auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 35%;
+    height: 50%;
+}
+
 .modal-content> form > button {
     text-align: center;
     margin-left: 20%;
@@ -171,3 +205,5 @@ a {
     margin-left: 40%;
     margin-top: -30px;
 } 
+
+
