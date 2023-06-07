@@ -6,7 +6,6 @@ $conn = connection();
 
 session_start();
 
-
 if(isset($_POST['login'])){ 
     $un = $_POST['username'];
     $pass = $_POST['password'];
