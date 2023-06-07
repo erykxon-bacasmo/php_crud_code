@@ -59,7 +59,7 @@ if (!isset($_SESSION['id']) || (trim($_SESSION['id']) == '')) {
 
     ?>
 
-    <div id="modalEdit" class="modal">
+    <div id="modalEdit" class="edit-modal">
         <div class="modal-content">
             <h2>Edit Record</h2>
             <form action="" method="post" class="form1" onsubmit="validateForm()">
