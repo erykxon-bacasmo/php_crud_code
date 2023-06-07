@@ -42,12 +42,12 @@ if(isset($_SESSION['id'])){?>
         <h1>Sample PHP CRUD Database</h1>
         <br>
         <!-- Add Record Section -->
-        <button id="add-btn" class="add-btn">Add Record</button>
+        <button id="add-btn" class="add-btn">Add Record</button><br><br>
     
         <!-- Pop Up Modal -->
         <div id="modal" class="modal">
             <!-- container of pop up modal -->
-            <div class="modal-content">
+            <div class="add-modal-content">
                 <!-- close button -->
                 <span id="close" class="close">&times;</span>
                 <!-- content of the modal -->
@@ -86,9 +86,6 @@ if(isset($_SESSION['id'])){?>
                 </form>
             </div>
         </div>
-    
-        <br>
-        <br>
     
         <!-- Table Section -->
         <table id="example" class="table table-striped" style="width: 80%; margin: auto;">
@@ -129,7 +126,9 @@ if(isset($_SESSION['id'])){?>
         <script src="script.js"></script>
     </body>
     </html>
+
 <?php } else {?>
+    <?php echo "Welcome Guest!"?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
