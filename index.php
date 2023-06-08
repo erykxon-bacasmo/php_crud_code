@@ -30,9 +30,10 @@ if(isset($_SESSION['id'])){?>
         if(isset($_POST['add'])){
             $name = $_POST['fname'];
             $age = $_POST['old'];
+            $gender = $_POST['gender'];
             $status = $_POST['status'];
     
-            $sql = "INSERT INTO test_code_db (`full_name`, `age`, `status`) VALUES ('$name', '$age', '$status')";
+            $sql = "INSERT INTO test_code_db (`full_name`, `age`, `gender`, `status`) VALUES ('$name', '$age', '$gender', '$status')";
             $conn->query($sql);
     
             header("location: index.php");
@@ -55,11 +56,17 @@ if(isset($_SESSION['id'])){?>
                 <!-- syntax that will connect to our database -->
                 <form action="" method="post" id="add-form" onsubmit="validateForm()">
                     <label>Full Name: </label>
-                    <input type="text" name="fname" id="full_name" required>
+                    <input type="text" name="fname" id="name" required>
                     <br><br>
                     <label>Age: </label>
                     <input type="integers" name="old" id="age" required>
                     <br><br>
+                    <Label>Gender:</Label>
+                    <select name="gender" id="gender" required>
+                        <option value=""hidden></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select><br><br>
                     <label>Status: </label>
                     <select name="status" id="status" required>
                         <option value="" hidden></option>
@@ -74,9 +81,10 @@ if(isset($_SESSION['id'])){?>
                         function validateForm(){
                             var name = document.getElementById('full_name')
                             var age = document.getElementById('age')
+                            var gender = document.getElementById('gender')
                             var stats = document.getElementById('status')
     
-                            if(name == '' || age == '' || stats == ''){
+                            if(name == '' || age == '' || gender == '' || stats == ''){
                                 return false;
                             } else {
                                 alert("Add Successfully");
@@ -93,6 +101,7 @@ if(isset($_SESSION['id'])){?>
                 <tr>
                     <th>Full Name</th>
                     <th>Age</th>
+                    <th>Gender</th>
                     <th>Status</th>
                     <th>More</th>
                 </tr>
@@ -104,6 +113,7 @@ if(isset($_SESSION['id'])){?>
                             <tr>
                                 <td><?php echo $rows['full_name']?></td>
                                 <td><?php echo $rows['age']?></td>
+                                <td><?php echo $rows['gender']?></td>
                                 <td><?php echo $rows['status']?></td>
                                 <td>
                                     <form action="delete.php" method="post">
@@ -161,6 +171,7 @@ if(isset($_SESSION['id'])){?>
                             <tr>
                                 <td><?php echo $rows['full_name']?></td>
                                 <td><?php echo $rows['age']?></td>
+                                <td><?php echo $rows['gender']?></td>
                                 <td><?php echo $rows['status']?></td>
                             </tr>
                         <?php }
