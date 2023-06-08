@@ -40,12 +40,18 @@ button {
     padding: 10px;
     border: 1px solid #888;
     border-radius: 8px;
-    width: 50%;
+    width: 40%;
     height: 90%;
 
 }
 
-.modal-content {
+.add-modal-content > form > label {
+    text-align: center;
+    padding: 5px;
+    margin: -5px;
+}
+/* this syntax for pop up edit content */
+/* .modal-content {
     background-color: #fefefe;
     margin: 15px auto;
     padding: 20px;
@@ -54,7 +60,7 @@ button {
     width: 35%;
     height: 100%;
 
-}
+} */
 
 .modal-content > form {
     margin: auto;
@@ -188,7 +194,7 @@ a {
     border: 1px solid #888;
     border-radius: 8px;
     width: 35%;
-    height: 50%;
+    height: 60%;
 }
 
 .modal-content> form > button {
