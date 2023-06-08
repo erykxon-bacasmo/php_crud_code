@@ -46,9 +46,10 @@ if (!isset($_SESSION['id']) || (trim($_SESSION['id']) == '')) {
     if(isset($_POST['update'])) {
         $name = $_POST['fname'];
         $age = $_POST['old'];
+        $gender = $_POST['gender'];
         $stats = $_POST['status'];
 
-        $sql = "UPDATE test_code_db SET `full_name` = '$name', `age` = '$age', `status` = '$stats' WHERE id = '$id'";
+        $sql = "UPDATE test_code_db SET `full_name` = '$name', `age` = '$age', `gender` = '$gender', `status` = '$stats' WHERE id = '$id'";
         $conn->query($sql);
 
         header("location: profile.php?id=" .$id);
@@ -69,6 +70,11 @@ if (!isset($_SESSION['id']) || (trim($_SESSION['id']) == '')) {
                 <label>Age: </label>
                 <input type="integers" name="old" value="<?php echo $rows['age']?>" required>
                 <br><br>
+                <Label>Gender</Label>
+                <select name="gender" required>
+                    <option value="Male" <?php echo($rows['gender'] == "Male")? 'selected': '';?>>Male</option>
+                    <option value="Female" <?php echo($rows['gender'] == "Female")? 'selected': '';?>>Female</option>
+                </select><br><br>
                 <label>Status: </label>
                 <select name="status" id="status">
                     <option value="Not to say" <?php echo($rows['status'] == "Not to say")? 'selected': '';?>>None</option>
